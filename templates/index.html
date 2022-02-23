@@ -5,15 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{name}}'s watchlist</title>
+    <link rel="icon" href="{{url_for('static', filename='favicon.png')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" type="text/css">
 </head>
 <body>
-    <h2>{{name}}'s watchlist</h2>
+    <h2>
+        <img src="{{url_for('static', filename='images/avatar.png')}}" alt="avatar" class="Avatar">
+        {{name}}'s watchlist
+    </h2>
     <p>{{movies|length}} titles</p>
-    <ul>
+    <ul class="movie-list">
         {%for movie in movies%}
             <li>{{movie.title}}-{{movie.year}}</li>
         {%endfor%}
     </ul>
+    <img src="{{url_for('static', filename='images/totoro.gif')}}" alt="Walking Totoro" class="totoro">
     <footer>
         <small>&copy; 2018 <a href="http://helloflask.com/tutorial">HelloFlask</a></small>
     </footer>
